@@ -71,11 +71,19 @@ exports.createPost = async (req, res, next) =>{
 //@route    PUT /api/post/:id
 //@access   public
 exports.getUpdatePost = async (req, res, next) =>{
+    try{
+        const post = await Posts.findByIdAndUpdate(req.body)
 
-    res.status(200).json({
-        success: true,
-        msg: 'update single post'
-    })
+        res.status(200).json({
+            success: true,
+            msg: 'update single post',
+            data: post
+        })
+    }
+    catch (err){
+        next(err)
+    }
+
 }
 //@des      Delete single post
 //@route    PUT /api/post/:id

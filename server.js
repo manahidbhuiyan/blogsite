@@ -18,6 +18,7 @@ const app = express()
 //body persr
 app.use(express.json())
 
+
 //define routes
 app.use('/api/post',postRoute)
 app.use('/api/auth',authRoute)

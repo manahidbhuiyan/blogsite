@@ -17,7 +17,7 @@ const errorHandler = (err, req, res, next) =>{
         const message = `Duplicate value`
         error = new ErrorResponse(message, 404)
     }
-    if(err.name == validationError){
+    if(err.name == 'validationError'){
         const message = Object.values(err.errors).map(value => value.message)
         error = new ErrorResponse(message, 404)
     }
