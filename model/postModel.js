@@ -10,10 +10,18 @@ const postSchema = new mongoose.Schema(
            trim: true,
            maxlength: [50, 'Title must not be more than 50 characters']
        },
-
+        description:{
+           type: String,
+           required: [true, 'please add description'],
+           maxlength: [500, 'Title must not be more than 50 characters']
+       },
         createdAt: {
             type: Date,
             default: Date.now
+        },
+        user:{
+            type: mongoose.Schema.ObjectId,
+            ref: 'User',
         }
     }
 )
